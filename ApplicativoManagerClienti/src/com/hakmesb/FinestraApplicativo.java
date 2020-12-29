@@ -7,6 +7,7 @@ import java.util.Vector;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -48,24 +49,21 @@ public class FinestraApplicativo {
 	private JButton btnAggiorna;
 	private JButton btnElimina;
 
-	/**
-	 * Create the application.
-	 */
 	public FinestraApplicativo() {
 		dbmanager = new DbManager(this);
 		eventhandler = new AppEventHandler(dbmanager, this);
 		initialize();	
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmApplicativoManagerClienti = new JFrame();
 		frmApplicativoManagerClienti.setTitle("Applicativo manager clienti");
 		frmApplicativoManagerClienti.setBounds(100, 100, 800, 550);
 		frmApplicativoManagerClienti.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmApplicativoManagerClienti.setResizable(false);
+		frmApplicativoManagerClienti.setLocationRelativeTo(null);
+		ImageIcon icon = new ImageIcon(FinestraApplicativo.class.getResource("/com/hakmesb/image/images.png"));
+		frmApplicativoManagerClienti.setIconImage(icon.getImage());
 		
 		JLabel lblNewLabel = new JLabel("Informazioni cliente");
 		lblNewLabel.setBounds(7, 7, 767, 41);
@@ -209,12 +207,14 @@ public class FinestraApplicativo {
 		panel_1.setLayout(sl_panel_1);
 		
 		btnAggiungi = new JButton("Aggiungi");
+		btnAggiungi.setFocusPainted(false);
 		btnAggiungi.addActionListener(eventhandler);
 		sl_panel_1.putConstraint(SpringLayout.WEST, btnAggiungi, 104, SpringLayout.WEST, panel_1);
 		sl_panel_1.putConstraint(SpringLayout.SOUTH, btnAggiungi, -12, SpringLayout.SOUTH, panel_1);
 		panel_1.add(btnAggiungi);
 		
 		btnAggiorna = new JButton("Aggiorna");
+		btnAggiorna.setFocusPainted(false);
 		btnAggiorna.addActionListener(eventhandler);
 		sl_panel_1.putConstraint(SpringLayout.NORTH, btnAggiungi, 0, SpringLayout.NORTH, btnAggiorna);
 		sl_panel_1.putConstraint(SpringLayout.EAST, btnAggiungi, -106, SpringLayout.WEST, btnAggiorna);
@@ -225,6 +225,7 @@ public class FinestraApplicativo {
 		panel_1.add(btnAggiorna);
 		
 		btnElimina = new JButton("Elimina");
+		btnElimina.setFocusPainted(false);
 		btnElimina.addActionListener(eventhandler);
 		sl_panel_1.putConstraint(SpringLayout.NORTH, btnElimina, 0, SpringLayout.NORTH, btnAggiungi);
 		sl_panel_1.putConstraint(SpringLayout.WEST, btnElimina, 106, SpringLayout.EAST, btnAggiorna);
@@ -299,5 +300,4 @@ public class FinestraApplicativo {
 	public JButton getBtnElimina() {
 		return btnElimina;
 	}
-	
 }
