@@ -7,7 +7,6 @@ import java.util.Vector;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -62,8 +61,7 @@ public class FinestraApplicativo {
 		frmApplicativoManagerClienti.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmApplicativoManagerClienti.setResizable(false);
 		frmApplicativoManagerClienti.setLocationRelativeTo(null);
-		ImageIcon icon = new ImageIcon(FinestraApplicativo.class.getResource("/com/hakmesb/image/images.png"));
-		frmApplicativoManagerClienti.setIconImage(icon.getImage());
+
 		
 		JLabel lblNewLabel = new JLabel("Informazioni cliente");
 		lblNewLabel.setBounds(7, 7, 767, 41);
