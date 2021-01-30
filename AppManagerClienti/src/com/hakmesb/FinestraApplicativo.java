@@ -59,8 +59,8 @@ public class FinestraApplicativo {
 	private JButton btnElimina;
 	private JMenuBar menuBar;
 	private JMenu mnNewMenu;
-	private JMenuItem mntmNewMenuItem;
-	private JMenuItem mntmNewMenuItem_1;
+	private JMenuItem mntmAboutDeveloper;
+	private JMenuItem mntmExit;
 	private JToolBar toolBar;
 	private JLabel lblDateAndTime;
 
@@ -152,6 +152,7 @@ public class FinestraApplicativo {
 		textFieldCercaCliente = new JTextField();
 		sl_panel_2.putConstraint(SpringLayout.NORTH, textFieldCercaCliente, 10, SpringLayout.NORTH, panel_2);
 		textFieldCercaCliente.setColumns(10);
+		textFieldCercaCliente.addKeyListener(eventhandler);
 		panel_2.add(textFieldCercaCliente);
 
 		vectorClienti = dbmanager.getClienti();
@@ -282,11 +283,17 @@ public class FinestraApplicativo {
 		mnNewMenu = new JMenu("Help");
 		menuBar.add(mnNewMenu);
 		
-		mntmNewMenuItem = new JMenuItem("About the developer");
-		mnNewMenu.add(mntmNewMenuItem);
+		mntmAboutDeveloper = new JMenuItem("About the developer");
+		mntmAboutDeveloper.addActionListener(eventhandler);
+		mnNewMenu.add(mntmAboutDeveloper);
 		
-		mntmNewMenuItem_1 = new JMenuItem("Exit");
-		mnNewMenu.add(mntmNewMenuItem_1);
+		JMenuItem mntmAboutApp = new JMenuItem("About the app");
+		mntmAboutApp.addActionListener(eventhandler);
+		mnNewMenu.add(mntmAboutApp);
+		
+		mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(eventhandler);
+		mnNewMenu.add(mntmExit);
 
 	}
 

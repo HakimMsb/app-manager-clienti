@@ -14,7 +14,7 @@ public class DbLogin {
 	}
 
 	private void doLogin(String username, String password) throws SQLException {
-		url = "jdbc:mysql://localhost/dbClienti";
+		url = "jdbc:mysql://localhost:3306/dbClienti";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {

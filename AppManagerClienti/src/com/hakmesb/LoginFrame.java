@@ -77,6 +77,8 @@ public class LoginFrame {
 		sl_panel.putConstraint(SpringLayout.NORTH, chckbxNewCheckBox, 6, SpringLayout.SOUTH, passwordFieldPassword);
 		sl_panel.putConstraint(SpringLayout.WEST, chckbxNewCheckBox, 0, SpringLayout.WEST, textFieldUsername);
 		panel.add(chckbxNewCheckBox);
+		
+		loginFrame.getRootPane().setDefaultButton(btnLogin);
 	}
 
 	public JFrame getLoginFrame() {

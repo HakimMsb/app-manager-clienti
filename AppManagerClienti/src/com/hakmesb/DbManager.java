@@ -82,7 +82,34 @@ public class DbManager {
 		ArrayList<Cliente> arrayListClienti = new ArrayList<>();
 		try {
 			st4 = con.createStatement();
-			rsClienti = st4.executeQuery("select * from clienti");
+			if(finestraApp.getTextFieldCercaCliente().getText().length() < 3) {
+				rsClienti = st4.executeQuery("select * from clienti");
+			}else {
+				rsClienti = st4.executeQuery("select * from clienti where cognome_cliente like '" + finestraApp.getTextFieldCercaCliente().getText()
+						+ "%' or nome_cliente like '" + finestraApp.getTextFieldCercaCliente().getText() + "%'");
+			}
+			while (rsClienti.next()) {
+				cliente = new Cliente(rsClienti.getInt(1), rsClienti.getString(2), rsClienti.getString(3),
+						rsClienti.getInt(4), rsClienti.getInt(5), rsClienti.getDate(6), rsClienti.getString(7),
+						rsClienti.getString(8));
+				arrayListClienti.add(cliente);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return new Vector<Cliente>(arrayListClienti);
+	}
+	
+	public Vector<Cliente> getClienti(String txt) {
+		ArrayList<Cliente> arrayListClienti = new ArrayList<>();
+		try {
+			st4 = con.createStatement();
+			if(txt.length() < 3) {
+				rsClienti = st4.executeQuery("select * from clienti");
+			}else {
+				rsClienti = st4.executeQuery("select * from clienti where cognome_cliente like '" + txt
+						+ "%' or nome_cliente like '" + txt + "%'");
+			}
 			while (rsClienti.next()) {
 				cliente = new Cliente(rsClienti.getInt(1), rsClienti.getString(2), rsClienti.getString(3),
 						rsClienti.getInt(4), rsClienti.getInt(5), rsClienti.getDate(6), rsClienti.getString(7),
